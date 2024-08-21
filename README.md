@@ -22,8 +22,8 @@
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
 This application was built by:
-[Carissa Hluchan](https://github.com/CarissaHluchan).
-[Robert Phillios](https://github.com/robert-phillips33).
+[Carissa Hluchan](https://github.com/CarissaHluchan),
+[Robert Phillips](https://github.com/robert-phillips33), and
 [Ryan O'Leary](https://github.com/ROlearyPro).
 
 ### Learning Goals:
