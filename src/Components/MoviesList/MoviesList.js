@@ -13,6 +13,7 @@ function MoviesList({ moviesList, deleteMovie }) {
   //   if (moviesList) {
   const movieCards = moviesList.map(movie => {
     keyNum++;
+
     // console.log(movies);
     return (
       <Movie
@@ -31,18 +32,16 @@ function MoviesList({ moviesList, deleteMovie }) {
         // deleteMovie={deleteMovie}
         key={"Baargh" + keyNum}
       />
-
-
     )
   })
-  //   }
-  //   console.log(movieCards)
+  let movieContainer = (<div className='movie-container'>
+    {/* <Movie /> */}
+    <div className="movie-card">{movieCards}</div>
+    {/* <h2> TEST does this work?</h2> */}
+  </div>)
+  movieContainer.addEventListener('click', console.log("Clicked"));
   return (
-    <div className='movie-container'>
-      {/* <Movie /> */}
-      <div className="movie-card">${movieCards}</div>
-      {/* <h2> TEST does this work?</h2> */}
-    </div>
+    movieContainer
   )
 }
 

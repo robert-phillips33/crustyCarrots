@@ -46,18 +46,14 @@ function App() {
   function deleteMovie() {
 
   }
-
-
-
-
-
+  
   // Return
   return (
     <div className="App">
       {/* <h1>Temp movies location</h1> */}
 
       <Nav />
-      {(!moviesList.length && !error) && (<p>This list of movies is empty.</p>)}
+      {(moviesList.length && !error) && (<p>This list of movies is empty.</p>)}
       <MoviesList moviesList={movieData.movies} 
       deleteMovie={deleteMovie} />
       {error && <h2>{error}</h2>}
