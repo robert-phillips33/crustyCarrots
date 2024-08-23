@@ -38,7 +38,9 @@ function MoviesList({ moviesList, deleteMovie }) {
 
 
   let movieContainer = (<div className='movie-container'>
-    <div className="movie-card">{movieCards}</div>
+    <div className="movie-card">
+      {movieCards} 
+      </div>
   </div>)
   return (
     movieContainer
