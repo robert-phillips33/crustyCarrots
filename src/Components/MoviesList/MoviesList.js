@@ -24,6 +24,7 @@ function MoviesList({ moviesList, deleteMovie }) {
         release_date={movie.release_date}
         backdrop_path={movie.backdrop_path}
         average_rating={movie.average_rating}
+        is_showing={false}
         // genres={movie.genres}
         // budget={movie.budget}
         // revenue={movie.revenue}
@@ -34,12 +35,11 @@ function MoviesList({ moviesList, deleteMovie }) {
       />
     )
   })
+
+
   let movieContainer = (<div className='movie-container'>
-    {/* <Movie /> */}
     <div className="movie-card">{movieCards}</div>
-    {/* <h2> TEST does this work?</h2> */}
   </div>)
-  movieContainer.addEventListener('click', console.log("Clicked"));
   return (
     movieContainer
   )
