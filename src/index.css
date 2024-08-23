@@ -1,4 +1,10 @@
 :root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --primary-color: #082032;
+  --secondary-color: #334756;
+  --tertiary-color: #F0A500;
+
   .exo-body-font {
     font-family: "Exo", sans-serif;
     font-optical-sizing: auto;
@@ -16,5 +22,9 @@
 
 body {
   background-image: url('../public/pxfuel.jpg');
-  color: white;
+  color: var(--white);
+  font-family: "Exo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
