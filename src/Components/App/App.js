@@ -11,7 +11,7 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [ratingsFromUser, setRatingsFromUser] = useState([]);
   const [error, setError] = useState('');
-  const [appView, setAppView] = useState('allMovies'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
+  const [appView, setAppView] = useState('featuredMovie'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
 
   function getMoviesList() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
@@ -66,7 +66,7 @@ function App() {
       <Nav />
       {(!moviesList.length && !error) && (<h2>This list of movies is empty.</h2>)}
       {(moviesList.length && !error) && (<h2>All Movies:</h2>)} 
-      {(error) && (<h2>{/*error message here--where does the error message live?*/}</h2>)} 
+      {(error) && (<h2>{error.message}</h2>)} 
       {appView === 'allMovies' && <MoviesList moviesList={moviesList} handleClick={handleMovieCardClick} />}
       {appView === 'featuredMovie' && <FeaturedMovie movie={movie} videos={videos} handleClick={handleFeaturedMovieClick} />}
       {error && <h2>{error}</h2>}
