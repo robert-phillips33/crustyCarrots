@@ -10,7 +10,7 @@ function MoviesList({ moviesList, handleClick }) {
 console.log('LIST<><>', moviesList)
   return (
     <div className='movie-container'>
-      <div className="movie-card">{
+      <div className="all-movie-cards">{
           moviesList.map((movie, idx) => {
    
             return (
