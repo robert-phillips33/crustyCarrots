@@ -7,17 +7,24 @@ import FeaturedMovie from '../FeaturedMovie/FeaturedMovie';
 function App() {
   // ---------------------> **** HOOKS **** <----------------------- //
   const [moviesList, setMoviesList] = useState([]);
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState(null); // Changed from array to null
   const [videos, setVideos] = useState([]);
   // const [ratingsFromUser, setRatingsFromUser] = useState([]);
-  const [error, setError] = useState('');
-  const [appView, setAppView] = useState('featuredMovie'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
+  const [error, setError] = useState(null); // Changed from string to null
+  const [loading, setLoading] = useState(true); // New loading state
+  const [appView, setAppView] = useState('allMovies'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
 
   function getMoviesList() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(res => res.json())
-      .then(data => setMoviesList(data.movies))
-      .catch(error => setError(error.message))
+      .then(data => {
+        setMoviesList(data.movies);
+        setLoading(false); // Set loading false once data is fetched
+      })
+      .catch(error => {
+        setError(error.message);
+        setLoading(false); // Set loading false if there's an error
+      });
   };
 
   useEffect(() => {
@@ -47,6 +54,7 @@ function App() {
 
   function handleMovieCardClick(movieID) {
     getMovie(movieID);
+    getVideos(movieID);
     setAppView('featuredMovie')
   };
 
@@ -59,14 +67,15 @@ function App() {
     // event that reveals the single movie, on click event we can .then fetch the data that we need for the single video
     // pass movieID as prop to single movie, interpolate movieID into fetch call to pull correct movie trailer 
     //  <------------------> ^^ ** DO NOT DELETE !! ** ^^ <------------------>
+
+    // I'm not sure if we need this, there is a fetch call to get videos for each movie which are now populating on featuredMovie
+
   };
 
   return (
     <div className="App">
       <Nav />
-      {(!moviesList.length && !error) && (<h2>This list of movies is empty.</h2>)}
-      {(moviesList.length && !error) && (<h2>All Movies:</h2>)} 
-      {(error) && (<h2>{error.message}</h2>)} 
+      {(!moviesList.length && !error) && (<div>This list of movies is empty.</div>)}
       {appView === 'allMovies' && <MoviesList moviesList={moviesList} handleClick={handleMovieCardClick} />}
       {appView === 'featuredMovie' && <FeaturedMovie movie={movie} videos={videos} handleClick={handleFeaturedMovieClick} />}
       {error && <h2>{error}</h2>}
