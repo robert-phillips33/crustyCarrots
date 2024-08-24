@@ -47,3 +47,4 @@ function Movie({
   return returnCard;
 }
 export default Movie;
+
