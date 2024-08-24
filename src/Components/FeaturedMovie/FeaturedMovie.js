@@ -6,7 +6,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
   //   <h2>Loading Movie...</h2>
   // )
   {(!movie.length && !error) && (<h2>Loading Movie...</h2>)}
-  {(error) && (<h2>{/* error handeling */}</h2>)}
+  {(error) && (<h2>{/* error handeling meggage*/}</h2>)} // dose the error live here or only on apps.js?
 
   console.log(movie)
   console.log(videos)
