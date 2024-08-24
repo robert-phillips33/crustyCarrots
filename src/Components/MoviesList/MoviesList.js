@@ -1,18 +1,18 @@
 import './MoviesList.css';
 import MovieCard from '../MovieCard/MovieCard.js';
-import movieData from '../../MovieData/MovieData';
+// import movieData from '../../MovieData/MovieData';
 
 
 // reflects ideas.js, but returns the values within the movie. 
 // Delete is a holdover, but maybe useful?
 
 function MoviesList({ moviesList, handleClick }) {
-
+console.log('LIST<><>', moviesList)
   return (
     <div className='movie-container'>
       <div className="movie-card">{
           moviesList.map((movie, idx) => {
-  
+   
             return (
               <MovieCard
                 title={movie.title}
@@ -20,7 +20,7 @@ function MoviesList({ moviesList, handleClick }) {
                 id={movie.id}
                 average_rating={movie.average_rating}
                 handleClick={handleClick}
-                key={"Baargh" + idx}
+                key={"Key" + idx}
               />
             )
           })
