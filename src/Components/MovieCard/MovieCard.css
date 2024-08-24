@@ -1,0 +1,28 @@
+.movie {
+  /* padding: 40px; */
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 25vw;
+  height: 63vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid var(--white);
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.movie-poster {
+  width: 135px;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid var(--white);
+}
+
+.movie-title,
+.rating {
+ text-align: center;
+}
