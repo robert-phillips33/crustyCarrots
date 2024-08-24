@@ -59,25 +59,18 @@ function App() {
     // event that reveals the single movie, on click event we can .then fetch the data that we need for the single video
     // pass movieID as prop to single movie, interpolate movieID into fetch call to pull correct movie trailer 
     //  <------------------> ^^ ** DO NOT DELETE !! ** ^^ <------------------>
-  }
+  };
 
-  console.log({ movie })
-
-  // Return
   return (
     <div className="App">
-      {/* <h1>Temp movies location</h1> */}
-
       <Nav />
       {(!moviesList.length && !error) && (<p>This list of movies is empty.</p>)}
       {appView === 'allMovies' && <MoviesList moviesList={moviesList} handleClick={handleMovieCardClick} />}
       {appView === 'featuredMovie' && <FeaturedMovie movie={movie} videos={videos} handleClick={handleFeaturedMovieClick} />}
       {error && <h2>{error}</h2>}
-
-      {/* <movieData /> */}
     </div>
   );
-}
+};
 
 
 // Export

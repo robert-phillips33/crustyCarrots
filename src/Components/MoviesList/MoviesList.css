@@ -1,21 +1,52 @@
-.movie-card {
-  color: var(--white);
-  display: flex;
-  border: 3px solid white;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
 
 .movie-container {
-  color: var(--white);
-  /* padding: 40px;
-    color: #090808;
-    display: flex;
-    height: 2px;
-    background-color: rgb(251, 227, 181);
-    border: 3px solid white;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-  */
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around; 
+  padding: 20px;
+  background-color: #000000; 
+}
+
+.movie-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; 
+}
+
+.movie-card .MovieCard {
+  background-color: #1c1c1c;
+  border: 2px solid #333;
+  padding: 15px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+.movie-card .MovieCard:hover {
+  transform: scale(1.5);
+}
+
+
+.movie-card .MovieCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.movie-card .MovieCard h3 {
+  font-size: 1.2rem;
+  color: #ffffff; 
+  margin: 10px 0;
+  text-align: center;
+}
+
+
+.movie-card .MovieCard p {
+  font-size: 1rem;
+  color: #ffcc00; 
+  text-align: center;
+  margin-top: 10px;
 }
