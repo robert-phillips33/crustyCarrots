@@ -5,7 +5,7 @@ import MoviesList from '../MoviesList/MoviesList';
 import FeaturedMovie from '../FeaturedMovie/FeaturedMovie';
 
 function App() {
-  // ---------------------> ** HOOKS ** <----------------------- //
+  // ---------------------> **** HOOKS **** <----------------------- //
   const [moviesList, setMoviesList] = useState([]);
   const [movie, setMovie] = useState([]);
   const [videos, setVideos] = useState([]);
