@@ -1,5 +1,4 @@
 import './MovieCard.css';
-// import { useState } from 'react';
 
 function MovieCard({
 	title, id, poster_path, average_rating, handleClick }) {

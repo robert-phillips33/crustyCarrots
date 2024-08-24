@@ -1,11 +1,8 @@
 import './MoviesList.css';
 import MovieCard from '../MovieCard/MovieCard.js';
-// import movieData from '../../MovieData/MovieData';
-
 
 // reflects ideas.js, but returns the values within the movie. 
 // Delete is a holdover, but maybe useful?
-
 function MoviesList({ moviesList, handleClick }) {
 console.log('LIST<><>', moviesList)
   return (

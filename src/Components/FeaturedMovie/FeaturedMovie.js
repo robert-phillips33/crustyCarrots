@@ -2,9 +2,11 @@ import "./FeaturedMovie.css"
 
 function FeaturedMovie({ movie, videos, handleClick }) {
 
-  if (!movie) return (
-    <h2>Loading Movie...</h2>
-  )
+  // if (!movie) return (
+  //   <h2>Loading Movie...</h2>
+  // )
+  {(!movie.length && !error) && (<h2>Loading Movie...</h2>)}
+  {(error) && (<h2>{/* error handeling */}</h2>)}
 
   console.log(movie)
   console.log(videos)
