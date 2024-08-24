@@ -9,7 +9,7 @@ function App() {
   const [moviesList, setMoviesList] = useState([]);
   const [movie, setMovie] = useState([]);
   const [videos, setVideos] = useState([]);
-  const [ratingsFromUser, setRatingsFromUser] = useState([]);
+  // const [ratingsFromUser, setRatingsFromUser] = useState([]);
   const [error, setError] = useState('');
   const [appView, setAppView] = useState('featuredMovie'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
 
