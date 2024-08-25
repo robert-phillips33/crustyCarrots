@@ -1,4 +1,5 @@
-import "./FeaturedMovie.css"
+import "./FeaturedMovie.css";
+import PropTypes from "prop-types";
 
 function FeaturedMovie({ movie, videos, handleClick }) {
 
@@ -44,7 +45,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
               <div>{movie.runtime} minutes</div>
             </div>
             <div className="featured-movie-detail">
-              <div>Buget:</div>
+              <div>Budget:</div>
               <div>${movie.budget}</div>
             </div>
             <div className="featured-movie-detail">
@@ -69,7 +70,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
         </div>
       </div>
       <div className="all-featured-movie-videos">
-      <div className="featured-movie-videos">
+        <div className="featured-movie-videos">
           {videos.length > 0 ? (
             videos.map(video => (
               <div key={video.id} className="video-container">
@@ -89,6 +90,24 @@ function FeaturedMovie({ movie, videos, handleClick }) {
       </div>
     </section>
   )
-}
+};
+
+FeaturedMovie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    budget: PropTypes.number,
+    revenue: PropTypes.number,
+    runtime: PropTypes.number,
+    tagline: PropTypes.string,
+    overview: PropTypes.string,
+  }),
+  handleClick: PropTypes.func.isRequired,
+};
+
+
 
 export default FeaturedMovie

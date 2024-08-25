@@ -143,13 +143,14 @@
 }
 
 .video-container {
-  margin-bottom: 5vh;;
+  margin-bottom: 5vh;
+  text-align: center;
 }
 
 .video {
   width: 75vw;
   height: 42vw;
-  border-width: 1px;
+  border-width: 1.5px;
   border-style: solid;
   border-color: var(--white);
   border-image: none;

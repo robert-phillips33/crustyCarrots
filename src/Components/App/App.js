@@ -5,7 +5,7 @@ import MoviesList from '../MoviesList/MoviesList';
 import FeaturedMovie from '../FeaturedMovie/FeaturedMovie';
 
 function App() {
-  // ---------------------> **** HOOKS **** <----------------------- //
+  // <-----> ** HOOKS ** <-----> //
   const [moviesList, setMoviesList] = useState([]);
   const [movie, setMovie] = useState(null); // Changed from array to null
   const [videos, setVideos] = useState([]);
@@ -14,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(true); // New loading state
   const [appView, setAppView] = useState('allMovies'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
 
+  // <-----> ** NETWORK REQUESTS ** <-----> //
   function getMoviesList() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(res => res.json())
@@ -52,6 +53,7 @@ function App() {
   //     .catch(error => setError(error.message))
   // };
 
+  // <-----> ** CLICK HANDLERS ** <-----> //
   function handleMovieCardClick(movieID) {
     getMovie(movieID);
     getVideos(movieID);
@@ -63,25 +65,17 @@ function App() {
     setAppView('allMovies')
   };
 
-  function findMovieTrailer() {
-    // event that reveals the single movie, on click event we can .then fetch the data that we need for the single video
-    // pass movieID as prop to single movie, interpolate movieID into fetch call to pull correct movie trailer 
-    //  <------------------> ^^ ** DO NOT DELETE !! ** ^^ <------------------>
-
-    // I'm not sure if we need this, there is a fetch call to get videos for each movie which are now populating on featuredMovie
-
-  };
-
   return (
     <div className="App">
       <Nav />
-      {(!moviesList.length && !error) && (<div>This list of movies is empty.</div>)}
+      {(!moviesList.length && !error) && (<div>...Currently loading movies...</div>)}
       {appView === 'allMovies' && <MoviesList moviesList={moviesList} handleClick={handleMovieCardClick} />}
       {appView === 'featuredMovie' && <FeaturedMovie movie={movie} videos={videos} handleClick={handleFeaturedMovieClick} />}
       {error && <h2>{error}</h2>}
     </div>
   );
 };
-// Export
+
+// <-> Export <-> //
 export default App;
 
