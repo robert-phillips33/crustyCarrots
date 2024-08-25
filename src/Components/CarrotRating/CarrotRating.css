@@ -1,0 +1,13 @@
+.carrot-rating {
+    display: flex;
+    margin-right: 10px;
+}
+
+.carrot-rating-img {
+    width: 36px;
+    rotate: -45deg;
+}
+
+.carrot-img-box {
+    width: 20px;
+}

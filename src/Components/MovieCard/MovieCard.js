@@ -1,4 +1,5 @@
 import './MovieCard.css';
+import CarrotRating from '../CarrotRating/CarrotRating';
 
 function MovieCard({
 	title, id, poster_path, average_rating, handleClick }) {
@@ -10,6 +11,7 @@ function MovieCard({
 			<div className="movie-card-rating">
 				<div>Movie Rating:</div>
 				<div className="rating">{average_rating.toFixed(0)}</div>
+				<CarrotRating rating={average_rating} />
 			</div>
 		</div>)
 }
