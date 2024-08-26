@@ -1,10 +1,9 @@
 import './Movie.css';
+import PropTypes from "prop-types";
 
 
 function Movie({
-  title, overview, id, poster_path, release_date,
-  backdrop_path, average_rating, genres, budget, revenue,
-  runtime, tagline, deleteMovie, is_showing }) {
+  title, id, poster_path, average_rating, is_showing }) {
 
 
   function setMovie({ title, id }) {
@@ -28,8 +27,8 @@ function Movie({
     (<div className={'movie' + id} isshowing="false" onClick={() => setMovie({ title, id })}>
       <h3 className="movie-title">
         {title} {is_showing && "WORK"};
-        </h3>
-      <img className="movie-poster" src={poster_path}>{ }</img>
+      </h3>
+      <img className="movie-poster" alt="movie-poster" src={poster_path}>{ }</img>
       <p className="rating">{average_rating.toFixed(1)}</p>
     </div>)
 
@@ -42,9 +41,16 @@ function Movie({
   else {
     returnCard = smallCard;
   }
-
-
   return returnCard;
-}
+};
+
+Movie.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  average_rating: PropTypes.number.isRequired,
+  is_showing: PropTypes.bool.isRequired,
+};
+
 export default Movie;
 

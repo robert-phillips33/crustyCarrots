@@ -22,6 +22,8 @@
 
 body {
   background-image: url('../public/pxfuel.jpg');
+  background-size: 100%;
+  background-position: center;
   color: var(--white);
   font-family: "Exo", sans-serif;
   font-optical-sizing: auto;

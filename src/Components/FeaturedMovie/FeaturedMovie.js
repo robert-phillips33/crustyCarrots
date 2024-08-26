@@ -1,10 +1,13 @@
-import "./FeaturedMovie.css"
+import "./FeaturedMovie.css";
+import PropTypes from "prop-types";
 
 function FeaturedMovie({ movie, videos, handleClick }) {
 
   if (!movie) return (
     <h2>Loading Movie...</h2>
   )
+  //{(!movie.length && !error) && (<h2>Loading Movie...</h2>)}
+  // {(error) && (<h2>{/* error handeling meggage*/}</h2>)} // dose the error live here or only on apps.js?
 
   console.log(movie)
   console.log(videos)
@@ -17,6 +20,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
 
   return (
     <section className="featured-movie" onClick={handleClick}>
+      <button className="featured-movie-button">See all Movies</button>
       <div className="featured-movie-info">
         <div className="featured-movie-title-poster-rating">
           <h2>{movie.title}</h2>
@@ -27,8 +31,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
           </div>
         </div>
         <div className="featured-movie-right-info">
-          <div className="featured-movie-button-and-tagline">
-            <button className="featured-movie-button">See all Movies</button>
+          <div className="featured-movie-tagline">
             <h3>{movie.tagline}</h3>
           </div>
           <p className="featured-movie-overview">{movie.overview}</p>
@@ -42,7 +45,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
               <div>{movie.runtime} minutes</div>
             </div>
             <div className="featured-movie-detail">
-            </div>Buget:<div>
+              <div>Budget:</div>
               <div>${movie.budget}</div>
             </div>
             <div className="featured-movie-detail">
@@ -53,16 +56,58 @@ function FeaturedMovie({ movie, videos, handleClick }) {
           <div className="featured-movie-genres">
             <div>Genres:</div>
             <div className="featured-movie-genres-container">
-              <div className="featured-movie-genres-box">{movie.genres}</div>
+              {movie.genres && movie.genres.length > 0 ? (
+                movie.genres.map((genre, index) => (
+                  <div key={index} className="featured-movie-genres-box">
+                    {genre}
+                  </div>
+                ))
+              ) : (
+                <div>No genres available</div>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <div className="featured-movie-videos">
-        <iframe src="https://www.youtube.com/embed/b1pMQasDnhM" title="video">{ }</iframe>
+      <div className="all-featured-movie-videos">
+        <div className="featured-movie-videos">
+          {videos.length > 0 ? (
+            videos.map(video => (
+              <div key={video.id} className="video-container">
+                <h3>{video.type}</h3>
+                <iframe
+                  className="video"
+                  src={`https://www.youtube.com/embed/${video.key}`}
+                  title={video.type}
+                  allowFullScreen
+                />
+              </div>
+            ))
+          ) : (
+            <p>No videos available</p>
+          )}
+        </div>
       </div>
     </section>
   )
-}
+};
+
+FeaturedMovie.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string),
+    budget: PropTypes.number,
+    revenue: PropTypes.number,
+    runtime: PropTypes.number,
+    tagline: PropTypes.string,
+    overview: PropTypes.string,
+  }),
+  handleClick: PropTypes.func.isRequired,
+};
+
+
 
 export default FeaturedMovie

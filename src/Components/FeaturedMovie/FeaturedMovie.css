@@ -1,4 +1,5 @@
 .featured-movie {
+  margin: 5vw;
   background-color: var(--primary-color);
   border-radius: 5px;
   display: flex;
@@ -9,25 +10,41 @@
 
 .featured-movie-info {
   width: 100%;
+  /* margin-right: 5vw; */
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.featured-movie-button {
+  background-color: var(--tertiary-color);
+  color: var(--black);
+  font-weight: 700;
+  font-size: clamp(12px, 14px, 24px);
+  padding:10px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 5px;
+  margin: 25px
 }
 
 /*--------------------------// movie-title-poster-rating //---------------------------------*/
 .featured-movie-title-poster-rating {
-  width: 35vw;
+  width: clamp(210px, 26vw, 300px);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
 }
 
 .featured-movie-title-poster-rating img {
   width: 200px;
+  border: 1px solid var(--white);
+  border-radius: 5px
 }
 
 .featured-movie-rating {
@@ -39,40 +56,34 @@
 
 /*--------------------------// right-info //-------------------------------*/
 .featured-movie-right-info {
-  width: 67vw;
-  border: 2px solid green;
+  width: clamp(295px, 51vw, 700px);
+  padding: 16px;
+  /* border: 2px solid green; */
 }
 
-.featured-movie-button-and-tagline {
-  height: 10vh;
+.featured-movie-tagline {
+  width: clamp(375px, 51vw, 700px);
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   justify-content: space-between;
-  border: 2px solid purple;
-}
-
-.featured-movie-button {
-  background-color: var(--tertiary-color);
-  color: var(--black);
-  font-weight: 700;
-  font-size: clamp(12px, 14px, 24px);
-  border-style: solid;
-  border-color: white;
-  border-radius: 5px;
+  /* border: 2px solid purple; */
 }
 
 .featured-movie-overview {
   .outer-wrapper {
-      /* Controls the outer spacing of the description */
-      margin: 20px 0;  /* Adds space above and below the description */
-    }
+    /* Controls the outer spacing of the description */
+    margin: 20px 0;
+    /* Adds space above and below the description */
+  }
 
   .inner-wrapper {
     /* Controls the inner spacing and ensures content is well-contained */
-    padding: 10px 15px;  /* Adds padding inside the description area */
-    background-color: #ffffff; /* Background color for description box */
-    border-radius: 8px;  /* Rounds the corners of the description box */
+    padding: 10px 15px;
+    /* Adds padding inside the description area */
+    background-color: #ffffff;
+    /* Background color for description box */
+    border-radius: 8px;
+    /* Rounds the corners of the description box */
   }
 }
 
@@ -81,20 +92,24 @@
   align-content: center;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid cyan;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  /* border: 2px solid cyan; */
 }
 
 .featured-movie-detail {
+  width: 105px;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   align-items: flex-start;
+  /* border: 1px solid white; */
 }
 
 /*-----------------------------// Genres //--------------------------------*/
 .featured-movie-genres {
-
+  width: clamp(375px, 51vw, 700px);
 }
 
 .featured-movie-genres-container {
@@ -107,13 +122,15 @@
 }
 
 .featured-movie-genres-box {
-  width: 15vw;
+  width: 130px;
   margin: 5px;
   text-align: center;
-  padding: 5px;;
+  padding: 5px;
+  ;
   background-color: var(--secondary-color);
   border: 1px solid var(--white);
 }
+
 /*-----------------------------// videos //--------------------------------*/
 
 .featured-movie-videos {
@@ -125,11 +142,15 @@
   margin: 10px;
 }
 
+.video-container {
+  margin-bottom: 5vh;
+  text-align: center;
+}
+
 .video {
-  width: 90vw;
-  height: 51vw;
-  margin: 15px;
-  border-width: 1px;
+  width: 75vw;
+  height: 42vw;
+  border-width: 1.5px;
   border-style: solid;
   border-color: var(--white);
   border-image: none;
