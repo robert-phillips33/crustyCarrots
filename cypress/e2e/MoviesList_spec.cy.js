@@ -22,9 +22,9 @@ describe('MoviesList component', () => {
       // Loop through the movies and verify content
       movies.forEach((movie, index) => {
         cy.get('.movie-card').eq(index).within(() => {
-          cy.contains(movie.title);
-          cy.get('img').should('have.attr', 'src', movie.poster_path);
-          cy.contains(movie.average_rating); // this is generating an error
+        cy.contains(movie.title);
+        cy.get('img').should('have.attr', 'src', movie.poster_path);
+        cy.get(movie.average_rating); 
         });
       });
     });

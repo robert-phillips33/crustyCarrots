@@ -15,7 +15,7 @@ function MovieCard({
         <div className="movie-card-rating">
           <div>Movie Rating:</div>
           {/* <div className="rating">{average_rating}</div> */}
-          <CarrotRating rating={average_rating.toFixed(0)} />
+          <CarrotRating rating={average_rating} />
         </div>
       </div>
     </Link>
