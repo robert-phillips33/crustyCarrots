@@ -1,8 +1,22 @@
 import "./FeaturedMovie.css";
 import PropTypes from "prop-types";
 import CarrotRating from "../CarrotRating/CarrotRating";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function FeaturedMovie({ movie, videos, handleClick }) {
+function FeaturedMovie() {
+
+  const [movie, setMovie] = useState(null); // Changed from array to null
+  const [videos, setVideos] = useState([]);
+  const [error, setError] = useState(null); // Changed from string to null
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    getMovie(id);
+    getVideos(id);
+  }, []);
 
   if (!movie) return (
     <h2>Loading Movie...</h2>
@@ -19,9 +33,25 @@ function FeaturedMovie({ movie, videos, handleClick }) {
   console.log(movie)
   console.log(videos)
 
+  function getMovie(movieID) {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)
+      .then(res => res.json())
+      .then(data => setMovie(data.movie))
+      .catch(error => setError(error.message))
+  };
+
+  function getVideos(movieID) {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`)
+      .then(res => res.json())
+      .then(data => setVideos(data.videos))
+      .catch(error => setError(error.message))
+  };
+
   return (
-    <section className="featured-movie" onClick={handleClick}>
-      <button className="featured-movie-button">See all Movies</button>
+    <section className="featured-movie">
+      <Link to='/'>
+        <button className="featured-movie-button">See all Movies</button>
+      </Link>
       <div className="featured-movie-info">
         <div className="featured-movie-title-poster-rating">
           <h2>{movie.title}</h2>
