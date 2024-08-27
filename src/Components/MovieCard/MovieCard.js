@@ -11,8 +11,8 @@ function MovieCard({
       <img className="movie-poster" src={poster_path} alt="movie poster">{ }</img>
       <div className="movie-card-rating">
         <div>Movie Rating:</div>
-        <div className="rating">{average_rating.toFixed(0)}</div>
-        <CarrotRating rating={average_rating} />
+        <div className="rating">{average_rating}</div>
+        {/* <CarrotRating rating={average_rating.toFixed(0)} /> */}
       </div>
     </div>)
 };
