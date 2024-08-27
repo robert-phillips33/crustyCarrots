@@ -71,7 +71,7 @@ function App() {
       <Nav />
       <Routes>
         {/* {(!moviesList.length && !error) && (<div>...Currently loading movies...</div>)} */}
-        <Route path='/' element={<MoviesList moviesList={moviesList}/>}></Route>
+        <Route path='/' element={<MoviesList moviesList={moviesList} />}></Route>
         <Route path='/movies/:id' element={<FeaturedMovie />}></Route>
         {/* {appView === 'allMovies' && <MoviesList moviesList={moviesList} handleClick={handleMovieCardClick} />} */}
         {/* {appView === 'featuredMovie' && <FeaturedMovie movie={movie} videos={videos} handleClick={handleFeaturedMovieClick} />} */}
