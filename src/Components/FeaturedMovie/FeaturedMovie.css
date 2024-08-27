@@ -24,7 +24,7 @@
   color: var(--black);
   font-weight: 700;
   font-size: clamp(12px, 14px, 24px);
-  padding:10px;
+  padding: 10px;
   border-style: solid;
   border-color: white;
   border-radius: 5px;
@@ -41,7 +41,7 @@
   /* border: 2px solid yellow; */
 }
 
-.featured-movie-title-poster-rating img {
+.featured-movie-poster {
   width: 200px;
   border: 1px solid var(--white);
   border-radius: 5px
@@ -155,3 +155,18 @@
   border-color: var(--white);
   border-image: none;
 }
+
+/*--------------------------------------*/
+/* .carrot-rating {
+  display: flex;
+  margin-right: 10px;
+}
+
+.carrot-rating-img {
+  width: 36px;
+  rotate: -45deg;
+}
+
+.carrot-img-box {
+  width: 20px;
+} */
