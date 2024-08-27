@@ -1,5 +1,6 @@
 import "./FeaturedMovie.css";
 import PropTypes from "prop-types";
+import CarrotRating from "../CarrotRating/CarrotRating";
 
 function FeaturedMovie({ movie, videos, handleClick }) {
 
@@ -27,7 +28,7 @@ function FeaturedMovie({ movie, videos, handleClick }) {
           <img className="featured-movie-poster" src={movie.poster_path} alt="Poster"></img>
           <div className="featured-movie-rating">
             <div>Movie Rating:</div>
-            <div>{movie.average_rating}</div>
+            <CarrotRating rating={movie.average_rating.toFixed(0)} />
           </div>
         </div>
         <div className="featured-movie-right-info">

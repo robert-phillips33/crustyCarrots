@@ -2,14 +2,14 @@ import './CarrotRating.css';
 import whiteCarrot from './white-carrot.png';
 import yellowCarrot from './yellow-carrot.png';
 
-function CarrotRating({ average_rating }) { // this is coming back undefined so I'm not passing the correct props - so I'm not sure if the rest of the code is correct. HELP!!!!!
+function CarrotRating({ rating }) { // this is coming back undefined so I'm not passing the correct props - so I'm not sure if the rest of the code is correct. HELP!!!!!
 
-  console.log(average_rating, 'AVERAGE RATING ????????????')
+  console.log(rating, 'AVERAGE RATING ????????????')
   const totalCarrots = 10;
 
   // Ensure the rating is within the valid range
-  const validRating = !isNaN(average_rating)
-    ? Math.max(0, Math.min(average_rating, totalCarrots))
+  const validRating = !isNaN(rating)
+    ? Math.max(0, Math.min(rating, totalCarrots))
     : 0;
 
   const fullCarrots = Math.floor(validRating);
