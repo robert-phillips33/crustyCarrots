@@ -52,7 +52,9 @@ function FeaturedMovie() {
       <Link to='/'>
         <button className="featured-movie-button">See all Movies</button>
       </Link>
+      <>
       <div className="featured-movie-info">
+        
         <div className="featured-movie-title-poster-rating">
           <h2>{movie.title}</h2>
           <img className="featured-movie-poster" src={movie.poster_path} alt="Poster"></img>
@@ -88,33 +90,28 @@ function FeaturedMovie() {
             <div>Genres:</div>
             <div className="featured-movie-genres-container">
               {movie.genres && movie.genres.length > 0 ? (
-                movie.genres.map((genre, index) => (
-                  <div key={index} className="featured-movie-genres-box">
-                    {genre}
-                  </div>
-                ))
-              ) : (
+                movie.genres.map((genre, index) =>
+                (<div key={index} className="featured-movie-genres-box">
+                  {genre}
+                </div>))) : (
                 <div>No genres available</div>
               )}
             </div>
           </div>
         </div>
       </div>
+      </>
       <div className="all-featured-movie-videos">
         <div className="featured-movie-videos">
-          {videos.length > 0 ? (
-            videos.map(video => (
-              <div key={video.id} className="video-container">
-                <h3>{video.type}</h3>
-                <iframe
-                  className="video"
-                  src={`https://www.youtube.com/embed/${video.key}`}
-                  title={video.type}
-                  allowFullScreen
-                />
-              </div>
-            ))
-          ) : (
+          {videos.length > 0 ? (videos.map(video => (
+            <div key={video.id} className="video-container">
+              <h3>{video.type}</h3>
+              <iframe
+                className="video"
+                src={`https://www.youtube.com/embed/${video.key}`}
+                title={video.type}
+                allowFullScreen
+              /></div>))) : (
             <p>No videos available</p>
           )}
         </div>

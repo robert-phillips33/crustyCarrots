@@ -29,6 +29,15 @@ describe('MoviesList component', () => {
       });
     });
   });
+
+  it('Should not show nonexistent movie cards', () => {
+    cy.get('@moviesRequest').then((interception) => {
+      const movies = interception.response.body.movies;
+      cy.get('.movie-card').should('have.length', movies.length);
+      cy.contains('.carrot-rating')
+
+    })
+  })
 });
 
 
