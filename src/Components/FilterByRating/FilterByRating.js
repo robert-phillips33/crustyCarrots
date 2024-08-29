@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './FilterByRating.css';
 
-function FilterByRating({setFilteredMovies, moviesList, filteredMovies}) {
+function FilterByRating({setFilteredMovies, moviesList}) {
 
   const [ratings, setRatings] = useState([]);
   const [selectedRating, setSelectedRating] = useState('');

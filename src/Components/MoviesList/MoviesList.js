@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 // reflects ideas.js, but returns the values within the movie. 
 // Delete is a holdover, but maybe useful?
-function MoviesList({ moviesList, handleClick }) {
-  console.log('LIST<><>', moviesList)
+function MoviesList({ moviesList }) {
   return (
     <div className='movie-container'>
       <div className="all-movie-cards">{
@@ -17,7 +16,6 @@ function MoviesList({ moviesList, handleClick }) {
               poster_path={movie.poster_path}
               id={movie.id}
               average_rating={movie.average_rating}
-              handleClick={handleClick}
               key={"Key" + idx}
             />
           )
@@ -36,7 +34,6 @@ MoviesList.propTypes = {
       average_rating: PropTypes.number.isRequired,
     })
   ).isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
 export default MoviesList;
