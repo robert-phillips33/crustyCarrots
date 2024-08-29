@@ -1,5 +1,6 @@
 .filter-by-rating {
     width: clamp(126px, 24vw, 24vw);
+    height: 25px;
     text-align: center;
     font-family: "Exo", sans-serif;
     font-optical-sizing: auto;

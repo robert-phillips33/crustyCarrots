@@ -11,3 +11,13 @@
     margin: 5px;
     font-size: clamp(12px, 14px, 24px);
 }
+
+.nav-search-button {
+    background-color: var(--tertiary-color);
+    color: var(--black);
+    font-weight: 700;
+    font-size: clamp(12px, 14px, 24px);
+    border-style: solid;
+    border-color: white;
+    border-radius: 5px;
+  }

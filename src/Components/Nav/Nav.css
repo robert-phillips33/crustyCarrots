@@ -72,7 +72,7 @@ header {
   width: clamp(31vw, 24vw, 45vw);
 } */
 
-.nav-search-button {
+/* .nav-search-button {
   background-color: var(--tertiary-color);
   color: var(--black);
   font-weight: 700;
@@ -80,4 +80,4 @@ header {
   border-style: solid;
   border-color: white;
   border-radius: 5px;
-}
+} */

@@ -28,7 +28,7 @@ return (
             className="search-by-title"
             value={userSearchInput}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="nav-search-button">Search</button>
     </form>
 )}
 
