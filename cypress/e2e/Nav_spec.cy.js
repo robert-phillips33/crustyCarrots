@@ -30,5 +30,4 @@ describe('Nav spec', () => {
     cy.get('.movie-title').contains("Smile").should('exist');
   })
 });
-// .get('h1').contains('h1', 'Feedback Loop') //
-// As a user, when I load the application, I can see the title of the application
+

@@ -22,10 +22,24 @@ describe('MoviesList component', () => {
     // const movies = interception.response.body.movies;
     // cy.get 
     cy.get('.movie-card-rating')
+  });
+
+  it.skip('Should return an error message when no movie cards display', () => {
+    // cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+    //   statusCode: 404
+    // }).as('errorMovie');
+    cy.visit('http://localhost:3000/movies/');
 
   });
+
+  // it('Should return an error message when attempting to view nonexistant movie', () => {
+  //   cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436289', {
+  //     statusCode: 404
+  //   }).as('errorMovie');
+  //   cy.visit('http://localhost:3000/movies/436289');
+  // });
+
 });
-// });
 
 
 // As a user, when I load the application, I can see a collection of movies. //
