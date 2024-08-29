@@ -1,32 +1,17 @@
 describe('FeaturedMovie component', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
-
-    const mockMovie = {
-      movie: {
-        id: 436270,
-        title: "Black Adam",
-        poster_path: "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
-        backdrop_path: "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
-        release_date: "2022-10-19",
-        overview: "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
-        genres: ["Action", "Fantasy", "Science Fiction"],
-        budget: 200000000,
-        revenue: 384571691,
-        runtime: 125,
-        tagline: "The world needed a hero. It got Black Adam.",
-        average_rating: 4
-      }
-    };
-
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
       statusCode: 200,
-      body: mockMovie
+      fixture: 'featuredMovie'
     }).as('getMovie');
 
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos', {
+      statusCode: 200,
+      fixture: 'videos'
+    })
+    
     cy.visit('http://localhost:3000/movies/436270');
 
-    cy.wait('@getMovie');
   });
 
   it('Should display the correct movie details for Black Adam', () => {
