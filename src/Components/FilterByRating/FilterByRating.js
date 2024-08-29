@@ -10,18 +10,24 @@ function FilterByRating({setFilteredMovies, moviesList, filteredMovies}) {
   useEffect(() => {
         const ratings = moviesList.map(movie => movie.average_rating); // this maps to a new array of ratings including duplicates
         const uniqueRatings = ratings.filter((rating, index, allRatings) => allRatings.indexOf(rating) === index); // this removes the duplicates
+        uniqueRatings.sort((a, b) => b - a)
         setRatings(uniqueRatings);
 
   }, [moviesList]);
+  
+    function filterMoviesByRating(rating, movies) {
+      return movies.filter(movie => movie.average_rating === rating )
+    }
 
   const ratingFilterSelection = (event) => {
-    setSelectedRating(event.target.value);
+    if (!event.target.value) {
+        setFilteredMovies(moviesList)
+    } else {
+        setSelectedRating(event.target.value);
+        const newList = filterMoviesByRating(Number(event.target.value), moviesList)
+        setFilteredMovies(newList)
+    }
   };
-
-  function filterMoviesByRating(rating, movies) {
-
-    return movies.filter(movie => movie.average_rating === rating )
-  }
 
   return (
     <select className="filter-by-rating" value={selectedRating} onChange={ratingFilterSelection}>

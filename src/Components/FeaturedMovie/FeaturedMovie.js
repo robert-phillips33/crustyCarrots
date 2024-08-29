@@ -21,18 +21,7 @@ function FeaturedMovie() {
   if (!movie) return (
     <h2>Loading Movie...</h2>
   )
-  //{(!movie.length && !error) && (<h2>Loading Movie...</h2>)}
-  // {(error) && (<h2>{/* error handeling meggage*/}</h2>)} // dose the error live here or only on apps.js?
-
-  // console.log(movie)
-  // console.log(videos)
-  //     const { title, poster_path, backdrop_path, release_date,
-  //    overview, average_rating, genres, budget, revenue, runtime, tagline, idx } = movie
-
-  //look through the array of videos to find the one whos id matches the idx?
-  // console.log(movie)
-  // console.log(videos)
-
+  
   function getMovie(movieID) {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)
       .then(res => res.json())
@@ -54,7 +43,6 @@ function FeaturedMovie() {
       </Link>
       <>
       <div className="featured-movie-info">
-        
         <div className="featured-movie-title-poster-rating">
           <h2>{movie.title}</h2>
           <img className="featured-movie-poster" src={movie.poster_path} alt="Poster"></img>
@@ -67,6 +55,7 @@ function FeaturedMovie() {
           <div className="featured-movie-tagline">
             <h3>{movie.tagline}</h3>
           </div>
+          <div>Movie Overview:</div>
           <p className="featured-movie-overview">{movie.overview}</p>
           <div className="featured-movie-all-details">
             <div className="featured-movie-detail">
