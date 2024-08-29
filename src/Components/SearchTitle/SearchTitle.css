@@ -1,5 +1,6 @@
 .search-by-title {
     width: clamp(31vw, 24vw, 45vw);
+    height: 20px;
     text-align: center;
     font-family: "Exo", sans-serif;
     font-optical-sizing: auto;
