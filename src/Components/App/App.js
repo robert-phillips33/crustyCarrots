@@ -10,6 +10,7 @@ function App() {
   const [moviesList, setMoviesList] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([])
   const [error, setError] = useState(null); // Changed from string to null
+  const [noMovieResults, setNoMovieResults] = useState(false);
 
   // <-----> ** NETWORK REQUESTS ** <-----> //
   function getMoviesList() {
@@ -18,7 +19,7 @@ function App() {
       .then(data => {
         setMoviesList(data.movies);// never change this. this is the source of truth
         setFilteredMovies([...data.movies])
-        
+
       })
       .catch(error => {
         setError(error.message);
@@ -31,11 +32,11 @@ function App() {
 
   return (
     <div className="App">
-      <Nav setFilteredMovies={setFilteredMovies} moviesList={moviesList} filteredMovies={filteredMovies}/>
+      <Nav setFilteredMovies={setFilteredMovies} moviesList={moviesList} filteredMovies={filteredMovies} />
       <Routes>
         <Route path='/' element={<MoviesList moviesList={filteredMovies} />}></Route>
         <Route path='/movies/:id' element={<FeaturedMovie />}></Route>
-        {error && <h2>{error}</h2>}
+        {/* {error && <h2>{error}</h2>} */}
       </Routes>
     </div>
   );

@@ -14,6 +14,14 @@ describe('MovieCard component', () => {
       cy.get(movie.average_rating);
     });
   });
+
+  it("should display an error if an element is missing from MovieCard", ()=>{
+    cy.get('@moviesRequest').then((interception) => {
+      const movie = interception.response.body.movies[41];
+      cy.get('.movie-poster').should('not.exist');
+      
+
+  })
 });
 
 
