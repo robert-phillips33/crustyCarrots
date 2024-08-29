@@ -24,14 +24,14 @@ function FeaturedMovie() {
   //{(!movie.length && !error) && (<h2>Loading Movie...</h2>)}
   // {(error) && (<h2>{/* error handeling meggage*/}</h2>)} // dose the error live here or only on apps.js?
 
-  console.log(movie)
-  console.log(videos)
+  // console.log(movie)
+  // console.log(videos)
   //     const { title, poster_path, backdrop_path, release_date,
   //    overview, average_rating, genres, budget, revenue, runtime, tagline, idx } = movie
 
   //look through the array of videos to find the one whos id matches the idx?
-  console.log(movie)
-  console.log(videos)
+  // console.log(movie)
+  // console.log(videos)
 
   function getMovie(movieID) {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)

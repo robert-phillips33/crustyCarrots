@@ -4,7 +4,7 @@ import yellowCarrot from './yellow-carrot.png';
 
 function CarrotRating({ rating }) { // this is coming back undefined so I'm not passing the correct props - so I'm not sure if the rest of the code is correct. HELP!!!!!
 
-  console.log(rating, 'AVERAGE RATING ????????????')
+  // console.log(rating, 'AVERAGE RATING ????????????')
   const totalCarrots = 10;
 
   // Ensure the rating is within the valid range

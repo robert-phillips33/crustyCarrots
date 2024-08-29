@@ -34,7 +34,7 @@ describe('MoviesList component', () => {
     cy.get('@moviesRequest').then((interception) => {
       const movies = interception.response.body.movies;
       cy.get('.movie-card').should('have.length', movies.length);
-      cy.contains('.carrot-rating')
+      cy.get('.movie-card-rating')
 
     })
   })

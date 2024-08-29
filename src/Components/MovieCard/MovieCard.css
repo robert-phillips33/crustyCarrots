@@ -9,6 +9,16 @@
   /* background-color: var(--primary-color); */
 }
 
+a:link {
+  color: var(--white);
+  text-decoration: none;
+}
+
+a:visited{
+  color: var(--tertiary-color);
+  text-decoration: none;
+}
+
 .movie-poster {
   width: 230px;
   height: auto;
@@ -18,7 +28,7 @@
 
 .movie-title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 228px;
   height: 70px;
