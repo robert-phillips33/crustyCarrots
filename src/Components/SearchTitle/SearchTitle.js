@@ -1,8 +1,8 @@
 import './SearchTitle.css'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
-function SearchTitle({ setMoviesList, setError , setFilteredMovies, moviesList, filteredMovies}) {
+function SearchTitle({ setFilteredMovies, moviesList }) {
     const [userSearchInput, setUserSearchInput] = useState('');
 
     const handleSearchInput = (e) => {
