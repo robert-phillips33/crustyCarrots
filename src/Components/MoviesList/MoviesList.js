@@ -8,7 +8,7 @@ function MoviesList({ moviesList }) {
   return (
     <div className='movie-container'>
       <div className="all-movie-cards">{
-        moviesList.map((movie, idx) => {
+        moviesList.map((movie, id) => {
 
           return (
             <MovieCard
@@ -16,7 +16,7 @@ function MoviesList({ moviesList }) {
               poster_path={movie.poster_path}
               id={movie.id}
               average_rating={movie.average_rating}
-              key={"Key" + idx}
+              key={"key" + id}
             />
           )
         })

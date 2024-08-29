@@ -16,12 +16,12 @@ function FeaturedMovie() {
   useEffect(() => {
     getMovie(id);
     getVideos(id);
-  }, []);
+  }, [id]);
 
   if (!movie) return (
     <h2>Loading Movie...</h2>
   )
-  
+
   function getMovie(movieID) {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)
       .then(res => res.json())
@@ -42,53 +42,53 @@ function FeaturedMovie() {
         <button className="featured-movie-button">See all Movies</button>
       </Link>
       <>
-      <div className="featured-movie-info">
-        <div className="featured-movie-title-poster-rating">
-          <h2>{movie.title}</h2>
-          <img className="featured-movie-poster" src={movie.poster_path} alt="Poster"></img>
-          <div className="featured-movie-rating">
-            <div>Movie Rating:</div>
-            <CarrotRating rating={movie.average_rating.toFixed(0)} />
+        <div className="featured-movie-info">
+          <div className="featured-movie-title-poster-rating">
+            <h2>{movie.title}</h2>
+            <img className="featured-movie-poster" src={movie.poster_path} alt="Poster"></img>
+            <div className="featured-movie-rating">
+              <div>Movie Rating:</div>
+              <CarrotRating rating={movie.average_rating.toFixed(0)} />
+            </div>
+          </div>
+          <div className="featured-movie-right-info">
+            <div className="featured-movie-tagline">
+              <h3>{movie.tagline}</h3>
+            </div>
+            <div>Movie Overview:</div>
+            <p className="featured-movie-overview">{movie.overview}</p>
+            <div className="featured-movie-all-details">
+              <div className="featured-movie-detail">
+                <div>Release Date:</div>
+                <div>{movie.release_date}</div>
+              </div>
+              <div className="featured-movie-detail">
+                <div>Run Time:</div>
+                <div>{movie.runtime} minutes</div>
+              </div>
+              <div className="featured-movie-detail">
+                <div>Budget:</div>
+                <div>${movie.budget}</div>
+              </div>
+              <div className="featured-movie-detail">
+                <div>Revenue:</div>
+                <div>${movie.revenue}</div>
+              </div>
+            </div>
+            <div className="featured-movie-genres">
+              <div>Genres:</div>
+              <div className="featured-movie-genres-container">
+                {movie.genres && movie.genres.length > 0 ? (
+                  movie.genres.map((genre, index) =>
+                  (<div key={index} className="featured-movie-genres-box">
+                    {genre}
+                  </div>))) : (
+                  <div>No genres available</div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-        <div className="featured-movie-right-info">
-          <div className="featured-movie-tagline">
-            <h3>{movie.tagline}</h3>
-          </div>
-          <div>Movie Overview:</div>
-          <p className="featured-movie-overview">{movie.overview}</p>
-          <div className="featured-movie-all-details">
-            <div className="featured-movie-detail">
-              <div>Release Date:</div>
-              <div>{movie.release_date}</div>
-            </div>
-            <div className="featured-movie-detail">
-              <div>Run Time:</div>
-              <div>{movie.runtime} minutes</div>
-            </div>
-            <div className="featured-movie-detail">
-              <div>Budget:</div>
-              <div>${movie.budget}</div>
-            </div>
-            <div className="featured-movie-detail">
-              <div>Revenue:</div>
-              <div>${movie.revenue}</div>
-            </div>
-          </div>
-          <div className="featured-movie-genres">
-            <div>Genres:</div>
-            <div className="featured-movie-genres-container">
-              {movie.genres && movie.genres.length > 0 ? (
-                movie.genres.map((genre, index) =>
-                (<div key={index} className="featured-movie-genres-box">
-                  {genre}
-                </div>))) : (
-                <div>No genres available</div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
       </>
       <div className="all-featured-movie-videos">
         <div className="featured-movie-videos">

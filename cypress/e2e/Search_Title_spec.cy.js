@@ -1,5 +1,5 @@
-describe('template spec', () => {
+describe('Search_Title spec', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+    cy.visit('http://localhost:3000');
   })
 })

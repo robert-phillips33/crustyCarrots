@@ -1,5 +1,7 @@
 describe('FeaturedMovie component', () => {
   beforeEach(() => {
+    cy.visit('http://localhost:3000');
+
     const mockMovie = {
       movie: {
         id: 436270,
@@ -55,6 +57,7 @@ describe('FeaturedMovie component', () => {
       statusCode: 404
     }).as('errorMovie');
     cy.visit('http://localhost:3000/movies/436289');
+
   });
 });
 
