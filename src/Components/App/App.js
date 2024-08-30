@@ -27,10 +27,8 @@ function App() {
         return res.json()
       })
       .then(data => {
-        // console.log(data.movies)
-        setMoviesList(data.movies);// never change this. this is the source of truth
+        setMoviesList(data.movies);
         setFilteredMovies([...data.movies])
-
       })
       .catch(err => {
         console.error(err)
@@ -41,7 +39,6 @@ function App() {
   useEffect(() => {
     getMoviesList()
   }, []);
-
 
   return (
     <div className="App">
@@ -56,6 +53,5 @@ function App() {
   );
 };
 
-// <-> Export <-> //
 export default App;
 

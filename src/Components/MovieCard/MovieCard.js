@@ -1,11 +1,10 @@
 import './MovieCard.css';
 import CarrotRating from '../CarrotRating/CarrotRating';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function MovieCard({
   title, id, poster_path, average_rating }) {
-
   return (
     <Link to={`/movies/${id}`}>
       <div className="movie-card">
@@ -19,7 +18,6 @@ function MovieCard({
     </Link>
   )
 };
-
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,

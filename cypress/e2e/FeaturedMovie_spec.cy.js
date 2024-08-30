@@ -35,13 +35,5 @@ describe('FeaturedMovie component', () => {
     cy.get('.featured-movie-button').click();
     cy.url().should('eq', 'http://localhost:3000/');
   });
-
-  it('Should return an error message when attempting to view nonexistant movie', () => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436289', {
-      statusCode: 404
-    }).as('errorMovie');
-    cy.visit('http://localhost:3000/movies/436289');
-
-  });
 });
 

@@ -7,9 +7,8 @@ import { Link } from "react-router-dom";
 
 function FeaturedMovie() {
 
-  const [movie, setMovie] = useState(null); // Changed from array to null
+  const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
-  // const [error, setError] = useState(null); // Changed from string to null
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -144,7 +143,5 @@ FeaturedMovie.propTypes = {
     overview: PropTypes.string,
   }),
 };
-
-
 
 export default FeaturedMovie

@@ -18,7 +18,6 @@ describe('Nav spec', () => {
 
   it('Should have a functioning input area', () => {
     cy.get('.search-by-title').type("Adam");
-    // cy.get('.search-by-title').should('have.value', 'Adam')
     cy.get('.movie-title').contains('Smile').should('not.exist');
   });
 

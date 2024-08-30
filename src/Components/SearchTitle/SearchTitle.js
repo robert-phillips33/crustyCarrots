@@ -1,4 +1,4 @@
-import './SearchTitle.css'
+import './SearchTitle.css';
 import { useState } from 'react';
 
 function SearchTitle({ setFilteredMovies, moviesList }) {
@@ -11,7 +11,6 @@ function SearchTitle({ setFilteredMovies, moviesList }) {
     if (newList.length === 0) {
       alert("No results matching your search, please try again!")
     }
-    // setEmptyMovieResults(!newList.length);
   };
 
   function filterMoviesByTitle(title, movies) {
@@ -22,7 +21,6 @@ function SearchTitle({ setFilteredMovies, moviesList }) {
     e.preventDefault();
     setFilteredMovies(moviesList);
     setUserSearchInput('');
-    // setEmptyMovieResults(false);
   };
 
   return (

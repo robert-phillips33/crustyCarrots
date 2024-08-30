@@ -2,14 +2,11 @@ import './MoviesList.css';
 import MovieCard from '../MovieCard/MovieCard.js';
 import PropTypes from 'prop-types';
 
-// reflects ideas.js, but returns the values within the movie. 
-// Delete is a holdover, but maybe useful?
-function MoviesList({ moviesList, error }) {
+function MoviesList({ moviesList }) {
   return (
     <div className='movie-container'>
       <div className="all-movie-cards">{
         moviesList.map((movie, id) => {
-
           return (
             <MovieCard
               title={movie.title}

@@ -35,4 +35,3 @@ describe('MoviesList component', () => {
 });
 
 
-// As a user, when I load the application, I can see a collection of movies. //

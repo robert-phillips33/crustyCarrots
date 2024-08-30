@@ -6,10 +6,8 @@ function CarrotRating({ rating }) {
   const totalCarrots = 10;
   const fullCarrots = Math.floor(rating);
   const emptyCarrots = totalCarrots - fullCarrots;
-
   const fullCarrotArray = Array(fullCarrots).fill(yellowCarrot);
   const emptyCarrotArray = Array(emptyCarrots).fill(whiteCarrot);
-
   const carrotImages = [...fullCarrotArray, ...emptyCarrotArray];
 
   return (
