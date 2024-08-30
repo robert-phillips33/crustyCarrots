@@ -1,6 +1,8 @@
 import './Nav.css';
+import SearchTitle from '../SearchTitle/SearchTitle.js';
+import FilterByRating from '../FilterByRating/FilterByRating.js';
 
-function Nav() {
+function Nav({ setFilteredMovies, moviesList, filteredMovies }) {
   return (
     <header>
       <div className='logo-container'>
@@ -11,16 +13,16 @@ function Nav() {
         </h1>
       </div>
       <div className="search-all">
-        <select className="filter-by-rating">
-          <option value="">By Rating</option>
-          <option value="test">test</option>
-        </select>
-        <select className="filter-by-genre">
-          <option value="">By Genre</option>
-          <option value="test">test</option>
-        </select>
-        <input type="text" placeholder="Search by Title" className="search-by-title"/>
-        <button type="button" className="nav-search-button">Search</button>
+        <FilterByRating
+          setFilteredMovies={setFilteredMovies}
+          moviesList={moviesList}
+          filteredMovies={filteredMovies}
+        />
+        <SearchTitle
+          setFilteredMovies={setFilteredMovies}
+          moviesList={moviesList}
+          filteredMovies={filteredMovies}
+        />
       </div>
     </header >
   )

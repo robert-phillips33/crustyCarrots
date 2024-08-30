@@ -1,3 +1,4 @@
+/*-----------------------------// Featured Movie View //--------------------------------*/
 .featured-movie {
   margin: 5vw;
   background-color: var(--primary-color);
@@ -10,13 +11,11 @@
 
 .featured-movie-info {
   width: 100%;
-  /* margin-right: 5vw; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 .featured-movie-button {
@@ -38,7 +37,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* border: 2px solid yellow; */
 }
 
 .featured-movie-poster {
@@ -58,15 +56,17 @@
 .featured-movie-right-info {
   width: clamp(295px, 51vw, 700px);
   padding: 16px;
-  /* border: 2px solid green; */
 }
 
 .featured-movie-tagline {
-  width: clamp(375px, 51vw, 700px);
+  width: clamp(375px, 51vw, 100vw);
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 2px solid purple; */
+  font-size: clamp(10px, 12px, 16px);
+  margin-bottom: 20px;
+/* border: 2px solid purple; */
 }
 
 .featured-movie-overview {
@@ -82,7 +82,7 @@
     /* Adds padding inside the description area */
     background-color: #ffffff;
     /* Background color for description box */
-    border-radius: 8px;
+    border-radius: 5px;
     /* Rounds the corners of the description box */
   }
 }
@@ -94,7 +94,7 @@
   align-items: center;
   margin-top: 25px;
   margin-bottom: 25px;
-  /* border: 2px solid cyan; */
+  max-width: 600px;
 }
 
 .featured-movie-detail {
@@ -104,7 +104,9 @@
   align-content: center;
   justify-content: center;
   align-items: flex-start;
-  /* border: 1px solid white; */
+  border: 2px, solid, white;
+  padding: 10px;
+  min-width: 100px;
 }
 
 /*-----------------------------// Genres //--------------------------------*/
@@ -126,7 +128,6 @@
   margin: 5px;
   text-align: center;
   padding: 5px;
-  ;
   background-color: var(--secondary-color);
   border: 1px solid var(--white);
 }
@@ -156,17 +157,9 @@
   border-image: none;
 }
 
-/*--------------------------------------*/
-/* .carrot-rating {
-  display: flex;
-  margin-right: 10px;
+@media screen and (max-width: 885px) {
+  .featured-movie-all-details {
+    flex-wrap: wrap;
+    justify-content: left;
+  }
 }
-
-.carrot-rating-img {
-  width: 36px;
-  rotate: -45deg;
-}
-
-.carrot-img-box {
-  width: 20px;
-} */

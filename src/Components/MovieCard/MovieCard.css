@@ -6,7 +6,16 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid var(--white);
-  /* background-color: var(--primary-color); */
+}
+
+a:link {
+  color: var(--white);
+  text-decoration: none;
+}
+
+a:visited{
+  color: var(--tertiary-color);
+  text-decoration: none;
 }
 
 .movie-poster {
@@ -18,7 +27,7 @@
 
 .movie-title {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   width: 228px;
   height: 70px;

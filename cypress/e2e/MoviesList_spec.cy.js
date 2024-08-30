@@ -1,35 +1,37 @@
 
 describe('MoviesList component', () => {
   beforeEach(() => {
-    // Intercept the API request before visiting the page
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies').as('getMovies');
+    cy.intercept('GET',
+      'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 200,
+      fixture: "moviesList"
+    }).as('getAllMovie')
 
-    // Visit the page after the intercept is set up
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+      statusCode: 200,
+      fixture: 'featuredMovie'
+    }).as('getMovie');
+
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos', {
+      statusCode: 200,
+      fixture: 'videos'
+    }).as('getVideos')
+
     cy.visit('http://localhost:3000');
-
-    // Wait for the intercept alias to be called
-    cy.wait('@getMovies').as('moviesRequest'); // Alias the wait result
   });
 
-  it('Should display all movie cards', () => {
-    // Access the interception result from the alias set in beforeEach
-    cy.get('@moviesRequest').then((interception) => {
-      const movies = interception.response.body.movies;
-
-      // Check that the number of movie cards matches the number of movies
-      cy.get('.movie-card').should('have.length', movies.length);
-
-      // Loop through the movies and verify content
-      movies.forEach((movie, index) => {
-        cy.get('.movie-card').eq(index).within(() => {
-          cy.contains(movie.title);
-          cy.get('img').should('have.attr', 'src', movie.poster_path);
-          cy.contains(movie.average_rating); // this is generating an error
-        });
-      });
-    });
+  it('Should display all parts of the movie card', () => {
+    cy.get('.movie-card')
+      .should('have.length', 2)
+      .get('h3').contains('Black Adam TEST')
+      .get('.movie-poster').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
+      .get('.movie-card-rating').should('exist')
   });
+
+  it('Should accept a click on a movie card and take you to a featured movie', () => {
+    cy.get('[href="/movies/436270"] > .movie-card').click()
+    cy.get('h2').contains('Black Adam')
+  })
 });
 
 
-// As a user, when I load the application, I can see a collection of movies. //

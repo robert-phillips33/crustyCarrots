@@ -3,29 +3,36 @@ import { useState, useEffect, } from 'react';
 import Nav from '../Nav/Nav';
 import MoviesList from '../MoviesList/MoviesList';
 import FeaturedMovie from '../FeaturedMovie/FeaturedMovie';
-import { Routes, Route } from 'react-router-dom';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 function App() {
   // <-----> ** HOOKS ** <-----> //
   const [moviesList, setMoviesList] = useState([]);
-  // const [movie, setMovie] = useState(null); // Changed from array to null
-  // const [videos, setVideos] = useState([]);
-  // const [ratingsFromUser, setRatingsFromUser] = useState([]);
-  const [error, setError] = useState(null); // Changed from string to null
-  // const [loading, setLoading] = useState(true); // New loading state
-  // const [appView, setAppView] = useState('allMovies'); //change this to 'featuredMovie' while you working on the feature movie CSS stuff then back to allMovies
+  const [filteredMovies, setFilteredMovies] = useState([])
+  // const [error, setError] = useState(null); // Changed from string to null
+  const [noMovieResults, setNoMovieResults] = useState(false);
+  const navigate = useNavigate();
+
 
   // <-----> ** NETWORK REQUESTS ** <-----> //
   function getMoviesList() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-      .then(res => res.json())
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/')
+      .then(res => {
+        if(!res.ok) {
+          const err = new Error(res.statusText)
+          err.statusCode = res.status
+          throw err
+        }
+        return res.json()
+      })
       .then(data => {
         setMoviesList(data.movies);
-        // setLoading(false); // Set loading false once data is fetched
+        setFilteredMovies([...data.movies])
       })
-      .catch(error => {
-        setError(error.message);
-        // setLoading(false); // Set loading false if there's an error
+      .catch(err => {
+        console.error(err)
+        navigate(`/error/${err.statusCode}`)
       });
   };
 
@@ -33,54 +40,18 @@ function App() {
     getMoviesList()
   }, []);
 
-  // function getMovie(movieID) {
-  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)
-  //     .then(res => res.json())
-  //     .then(data => setMovie(data.movie))
-  //     .catch(error => setError(error.message))
-  // };
-
-  // function getVideos(movieID) {
-  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`)
-  //     .then(res => res.json())
-  //     .then(data => setVideos(data.videos))
-  //     .catch(error => setError(error.message))
-  // };
-
-  // function getRatingsFromUser(userID) {
-  //   fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/users/${userID}/ratings`)
-  //     .then(res => res.json())
-  //     .then(data => setRatingsFromUser(data))
-  //     .catch(error => setError(error.message))
-  // };
-
-  // <-----> ** CLICK HANDLERS ** <-----> //
-  // function handleMovieCardClick(movieID) {
-  //   getMovie(movieID);
-  //   getVideos(movieID);
-  //   setAppView('featuredMovie')
-  // };
-
-  // function handleFeaturedMovieClick(event) {
-  //   getMoviesList();
-  //   setAppView('allMovies')
-  // };
-
   return (
     <div className="App">
-      <Nav />
+      <Nav setFilteredMovies={setFilteredMovies} moviesList={moviesList} filteredMovies={filteredMovies} />
       <Routes>
-        {/* {(!moviesList.length && !error) && (<div>...Currently loading movies...</div>)} */}
-        <Route path='/' element={<MoviesList moviesList={moviesList} />}></Route>
+        <Route path='/' element={<MoviesList moviesList={filteredMovies} />}></Route>
         <Route path='/movies/:id' element={<FeaturedMovie />}></Route>
-        {/* {appView === 'allMovies' && <MoviesList moviesList={moviesList} handleClick={handleMovieCardClick} />} */}
-        {/* {appView === 'featuredMovie' && <FeaturedMovie movie={movie} videos={videos} handleClick={handleFeaturedMovieClick} />} */}
-        {error && <h2>{error}</h2>}
+        <Route path='/error/:code' element={<ErrorPage />}></Route>
+        <Route path='*' element={<ErrorPage error={404} />}></Route>
       </Routes>
     </div>
   );
 };
 
-// <-> Export <-> //
 export default App;
 

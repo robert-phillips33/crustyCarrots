@@ -4,7 +4,6 @@
   flex-wrap: wrap; 
   justify-content: space-around; 
   padding: 20px;
-  /* background-color: #000000;  */
 }
 
 .all-movie-cards {
@@ -23,11 +22,9 @@
   transition: transform 0.2s ease-in-out;
 }
 
-
 .movie-card .MovieCard:hover {
   transform: scale(1.5);
 }
-
 
 .movie-card .MovieCard img {
   width: 100%;
@@ -35,14 +32,12 @@
   display: block;
 }
 
-
 .movie-card .MovieCard h3 {
   font-size: 1.2rem;
   color: #ffffff; 
   margin: 10px 0;
   text-align: center;
 }
-
 
 .movie-card .MovieCard p {
   font-size: 1rem;
