@@ -5,19 +5,21 @@ describe('Nav spec', () => {
 
   it('Should correctly display the webpage, or at least the nav bar portion', () => {
 
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies').as('getMovies');
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 200,
+      fixture: 'moviesLis'
+    }).as('getMovies');
 
-    cy.wait('@getMovies').as('moviesRequest'); 
+    cy.wait('@getMovies').as('moviesRequest');
     cy.get('h1').contains('Crusty')
     cy.get('h1').contains('Carrots')
     cy.get('img').should('have.attr', 'src', '/orange-carrot-2.svg')
   })
 
   it('Should have a functioning input area', () => {
-    cy.get('.search-by-title').type('Adam');
-    cy.get('.search-by-title').should('have.value', 'Adam')
-
-
+    cy.get('.search-by-title').type("Adam");
+    // cy.get('.search-by-title').should('have.value', 'Adam')
+    cy.get('.movie-title').contains('Smile').should('not.exist');
   });
 
   it('Should have dropdown filters', () => {

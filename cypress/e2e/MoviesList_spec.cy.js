@@ -5,7 +5,18 @@ describe('MoviesList component', () => {
       'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 200,
       fixture: "moviesList"
-    })
+    }).as('getAllMovie')
+
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+      statusCode: 200,
+      fixture: 'featuredMovie'
+    }).as('getMovie');
+
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270/videos', {
+      statusCode: 200,
+      fixture: 'videos'
+    }).as('getVideos')
+
     cy.visit('http://localhost:3000');
   });
 
@@ -17,28 +28,10 @@ describe('MoviesList component', () => {
       .get('.movie-card-rating').should('exist')
   });
 
-  it('Should not show nonexistent movie cards', () => {
-    // cy.get('@MovieRequest').then((interception) => {
-    // const movies = interception.response.body.movies;
-    // cy.get 
-    cy.get('.movie-card-rating')
-  });
-
-  it('Should return an error message when no movie cards display', () => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
-      statusCode: 404
-    }).as('errorMovie');
-    // cy.visit('http://localhost:3000/movies/');
-
-  });
-
-  // it('Should return an error message when attempting to view nonexistant movie', () => {
-  //   cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436289', {
-  //     statusCode: 404
-  //   }).as('errorMovie');
-  //   cy.visit('http://localhost:3000/movies/436289');
-  // });
-
+  it('Should accept a click on a movie card and take you to a featured movie', () => {
+    cy.get('[href="/movies/436270"] > .movie-card').click()
+    cy.get('h2').contains('Black Adam')
+  })
 });
 
 
