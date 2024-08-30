@@ -18,6 +18,7 @@
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+This project was created to help us learn and challenge ourselves through the use of React, Router, and Cypress, learning how to make use of each of the various advantages those programs provide. We worked on it for a little under two weeks, as part of our Mod 3 section, and we're quite happy with the results!
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
@@ -35,3 +36,4 @@ This application was built by:
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+We had some major troubles understanding how we should properly conduct "sad path" testing at first, but through consultation with our peers and teachers, we managed to properly test not only the expected and desired possibilities that could occur with the website, but also scenarios where something goes wrong, giving us a 404 or other error. We also had some trouble properly implementing the carrot-based rating at first, displaying scores as images rather than just numerical values. This was eventually solved through filling an array with images, with the number of them "empty" being determined based on the movie's overall rating. Lastly, our general understanding surrounding React application workflow was improved over the course of this project, especially our understanding of how props and data flow between components; there's not really a specific example of how we overcame this difficulty, because the whole project is built on it, and it working is proof we managed to successfully learn the topic!  
