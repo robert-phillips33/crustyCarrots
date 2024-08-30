@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // reflects ideas.js, but returns the values within the movie. 
 // Delete is a holdover, but maybe useful?
-function MoviesList({ moviesList }) {
+function MoviesList({ moviesList, error }) {
   return (
     <div className='movie-container'>
       <div className="all-movie-cards">{

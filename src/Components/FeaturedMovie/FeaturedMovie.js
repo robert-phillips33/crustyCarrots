@@ -1,7 +1,7 @@
 import "./FeaturedMovie.css";
 import PropTypes from "prop-types";
 import CarrotRating from "../CarrotRating/CarrotRating";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,8 @@ function FeaturedMovie() {
 
   const [movie, setMovie] = useState(null); // Changed from array to null
   const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(null); // Changed from string to null
+  // const [error, setError] = useState(null); // Changed from string to null
+  const navigate = useNavigate();
 
   const { id } = useParams();
 
@@ -24,16 +25,36 @@ function FeaturedMovie() {
 
   function getMovie(movieID) {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          const err = new Error(res.statusText)
+          err.statusCode = res.status
+          throw err
+        }
+        return res.json()
+      })
       .then(data => setMovie(data.movie))
-      .catch(error => setError(error.message))
+      .catch(err => {
+        console.error(err)
+        navigate(`/error/${err.statusCode}`)
+      });
   };
 
   function getVideos(movieID) {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieID}/videos`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          const err = new Error(res.statusText)
+          err.statusCode = res.status
+          throw err
+        }
+        return res.json()
+      })
       .then(data => setVideos(data.videos))
-      .catch(error => setError(error.message))
+      .catch(err => {
+        console.error(err)
+        navigate(`/error/${err.statusCode}`)
+      });
   };
 
   return (

@@ -24,11 +24,11 @@ describe('MoviesList component', () => {
     cy.get('.movie-card-rating')
   });
 
-  it.skip('Should return an error message when no movie cards display', () => {
-    // cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
-    //   statusCode: 404
-    // }).as('errorMovie');
-    cy.visit('http://localhost:3000/movies/');
+  it('Should return an error message when no movie cards display', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/', {
+      statusCode: 404
+    }).as('errorMovie');
+    // cy.visit('http://localhost:3000/movies/');
 
   });
 
