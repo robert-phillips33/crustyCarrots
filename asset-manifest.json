@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/crustyCarrots/static/css/main.0420d5ec.css",
-    "main.js": "/crustyCarrots/static/js/main.0efb63c2.js",
+    "main.css": "/crustyCarrots/static/css/main.83f8b83d.css",
+    "main.js": "/crustyCarrots/static/js/main.68b4214f.js",
     "static/media/pxfuel.jpg": "/crustyCarrots/static/media/pxfuel.ff83a180ffda88655472.jpg",
     "static/media/yellow-carrot.png": "/crustyCarrots/static/media/yellow-carrot.20eecc7685f001d0ab2b.png",
     "static/media/white-carrot.png": "/crustyCarrots/static/media/white-carrot.eccbdaa8e992ca0f4bb1.png",
     "index.html": "/crustyCarrots/index.html",
-    "main.0420d5ec.css.map": "/crustyCarrots/static/css/main.0420d5ec.css.map",
-    "main.0efb63c2.js.map": "/crustyCarrots/static/js/main.0efb63c2.js.map"
+    "main.83f8b83d.css.map": "/crustyCarrots/static/css/main.83f8b83d.css.map",
+    "main.68b4214f.js.map": "/crustyCarrots/static/js/main.68b4214f.js.map"
   },
   "entrypoints": [
-    "static/css/main.0420d5ec.css",
-    "static/js/main.0efb63c2.js"
+    "static/css/main.83f8b83d.css",
+    "static/js/main.68b4214f.js"
   ]
 }
