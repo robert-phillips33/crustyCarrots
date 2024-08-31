@@ -44,7 +44,7 @@ function App() {
     <div className="App">
       <Nav setFilteredMovies={setFilteredMovies} moviesList={moviesList} filteredMovies={filteredMovies} />
       <Routes>
-        <Route path='/' element={<MoviesList moviesList={filteredMovies} />}></Route>
+        <Route exact path='/' element={<MoviesList moviesList={filteredMovies} />}></Route>
         <Route path='/movies/:id' element={<FeaturedMovie />}></Route>
         <Route path='/error/:code' element={<ErrorPage />}></Route>
         <Route path='*' element={<ErrorPage error={404} />}></Route>
