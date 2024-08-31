@@ -18,7 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"  
   },
   "eslintConfig": {
     "extends": [
@@ -39,6 +41,12 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.13.3"
-  }
+    "cypress": "^13.13.3",
+    "gh-pages": "^6.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robert-phillips33/crustyCarrots"
+  },
+  "homepage": "http://robert-phillips33.github.io/crustyCarrots"
 }
